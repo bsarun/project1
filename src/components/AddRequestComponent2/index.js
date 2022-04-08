@@ -233,10 +233,10 @@ class AddRequestComponent extends React.Component {
 
                     <Flex direction="row" className="multi-select-list">
                         <View className='checklist-name'><Card className="multi-select-card" variation="elevated">
-                            <CheckboxField onChange={(e) => this.onChangeInput(e)} isChecked={DASHBOARD_CONST_NORTH.isChecked} label={DASHBOARD_CONST_NORTH.label} name={DASHBOARD_CONST_NORTH.name} /></Card></View>
-                        <View className='checklist'>{Object.values(DASHBOARD_CONST_NORTH.children).map((params, index) => {
+                            <CheckboxField onChange={(e) => this.onChangeInput(e)} label={'North'} name={'North'} /></Card></View>
+                        <View className='checklist'>{Object.values(DASHBOARD_CONST_NORTH).map((params, index) => {
                             return (<Card className="multi-select-card" variation="elevated">
-                                <Text ><CheckboxField onChange={(e) => this.onChangeInput(e)} {...params} /></Text>
+                                <Text ><CheckboxField onChange={(e) => this.onChangeInput(e)} label={params} /></Text>
                             </Card>);
                         })}</View>
                     </Flex>
