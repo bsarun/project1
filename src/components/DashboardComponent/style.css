@@ -1,0 +1,32 @@
+.dashboard-table{
+    margin: 0% 0% 1% 2%;
+    width: 93%;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+p.amplify-text {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.footer-buttons {
+    width: 11%;
+    font-size: 13px;
+    margin: 0% 0% 2% 2%;
+}
+
+.table-thead {
+    background-color: #cccccc;
+}
+
+.dashboard-wrapper {
+    background: #f6f8fa;
+}
+.dashboard-nav{
+    margin: 0% 0% 0% 2%;
+    width: 93%;
+}
+

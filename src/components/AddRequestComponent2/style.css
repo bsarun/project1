@@ -1,0 +1,53 @@
+.dashboard-table{
+    margin: 0% 0% 1% 2%;
+    width:93%;
+    font-size: 12px;
+}
+
+.footer-buttons {
+    margin: 0% 0% 2% 2%;
+}
+.multi-select-list{
+    display: inline;
+    margin: 0% 2% 0% 2%;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 0% 1% 1% 1%;
+    display: flex;
+}
+.multi-select-card{
+    margin: 1% 1% 0% 0%
+}
+.form-item{
+    
+    margin: 0% 0% 0% 3%;
+    font-size: 12px;
+}
+
+.form-grid{
+    margin:2% 2% 2% 2%;
+}
+
+.addrequest-wrapper input{
+    background-color: white;
+}
+
+.addrequest-wrapper{
+    background: #f6f8fa;
+    margin: 1% 1% 1% 1%;
+    border-radius: 5px;
+    /* background-color: #45606c0f */
+}
+.checklist-name{
+    margin: 1%;
+}
+.footer-button-group{
+    background-color: white;
+}
+.addrequest-footer-buttons{
+    justify-content: center;
+}
+.remarks {
+    margin: 0% 2% 0% 2%;
+}
+

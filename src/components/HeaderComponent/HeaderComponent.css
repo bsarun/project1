@@ -1,0 +1,38 @@
+.header-wrapper {
+    display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: var(--amplify-borders-primary);
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--amplify-space-small) var(--amplify-space-large);
+    /* background: #486ea34f; */
+    background: #0043809c;
+    color: white;
+}
+
+.logout-button{
+    font-size: 12px;
+}
+
+.header-flex-end{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--amplify-space-small) var(--amplify-space-large);
+    font-size: 10px;
+    width: 160px;
+    white-space: nowrap;
+}
+.module-name{
+    font-size: 14px;
+    background: #0043809c;
+    color: white;
+}
+.module-name button{
+    color:white;
+}

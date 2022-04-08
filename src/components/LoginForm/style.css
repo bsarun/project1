@@ -1,0 +1,33 @@
+.login-form-wrapper{
+    margin: auto;
+    border: 1px solid hsla(210,18%,87%,1);;
+    border-radius: 8px;
+    margin-top: 4%;
+    padding: 2em 2em 3em 3em;
+    width: 35%;
+    background: #f6f8fa;
+    color: black;
+}
+
+/* #486ea3 */
+
+.login-heading{
+    text-align: center;
+}
+
+.container-fluid{
+    overflow: hidden;
+}
+
+.forgot-password-link{
+    text-decoration: none;
+    color: #0969da;
+}
+
+.login-link{
+    background-color: var(--amplify-components-button-primary-background-color);
+    color: white;
+}
+.login-username input, .login-password input{
+    background-color: white;
+}
