@@ -1,46 +1,124 @@
-// export const DASHBOARD_CONST = {
-//     'North': {
-//         id: 0, 
-//         value: 'North', 
-//         isChecked: true, 
-//         size:"small", 
-//         label:'North', 
-//         name:'North',
-//         children: [
-//             { id: 1, value: '71N', isChecked: false, size:"small", label:'71N', name:'71N' },
-//             { id: 2, value: '71S', isChecked: false, size:"small", label:'71S', name:'71S' },
-//             { id: 3, value: '76', isChecked: false, size:"small", label:'76', name:'76' },
-//             { id: 4, value: 'ECS', isChecked: false, size:"small", label:'ECS', name:'ECS' },
-//         ]
-//     }
-    
-// }
-
-export const DASHBOARD_CONST_NORTH = 
-{
-    '71N': '71N',
-    '71S': '71S',
-    '76': '76',
-    'ECS': 'ECS',
-    'PMB': 'PMB',
-    '08B': 'O8B',
-    'O8C': 'O8C',
-    'O8D': 'O8D',
-    'O8E': 'O8E',
-    'ECW': 'ECW',
-    'O9A': 'O9A',
-    '75W': '75W',
-    '75E': '75E',
-    '74A': '74A',
-    '74B': '74B',
-    '74C': '74C',
-    'CYA': 'CYA',
-    'CYB': 'CYB',
-    'CYC': 'CYC',
-    'CYD': 'CYD',
-    'RMS': 'RMS',
-    'RMB': 'RMB',
+export const DASHBOARD_CONST = {
+    'North': {
+        id: 0, 
+        value: 'North', 
+        checked: false, 
+        size:"small", 
+        label:'North', 
+        name:'North',
+        children: [
+            { id: 1, value: '71N', checked: false, size:"small", label:'71N', name:'71N' },
+            { id: 2, value: '71S', checked: false, size:"small", label:'71S', name:'71S' },
+            { id: 3, value: '76', checked: false, size:"small", label:'76', name:'76' },
+            { id: 4, value: 'ECS', checked: false, size:"small", label:'ECS', name:'ECS' },
+            { id: 5, value: 'PMB', checked: false, size:"small", label:'PMB', name:'PMB' },
+            { id: 6, value: '08B', checked: false, size:"small", label:'08B', name:'08B' },
+            { id: 7, value: 'O8C', checked: false, size:"small", label:'O8C', name:'O8C' },
+            { id: 8, value: 'O8D', checked: false, size:"small", label:'O8D', name:'O8D' },
+            { id: 9, value: 'O8E', checked: false, size:"small", label:'O8E', name:'O8E' },
+            { id: 10, value: 'ECW', checked: false, size:"small", label:'ECW', name:'ECW' },
+            { id: 10, value: 'O9A', checked: false, size:"small", label:'O9A', name:'O9A' },
+            { id: 10, value: '75W', checked: false, size:"small", label:'75W', name:'75W' },
+            { id: 10, value: '75E', checked: false, size:"small", label:'75E', name:'75E' },
+            { id: 10, value: '74A', checked: false, size:"small", label:'74A', name:'74A' },
+            { id: 10, value: '74B', checked: false, size:"small", label:'74B', name:'74B' },
+            { id: 10, value: '74C', checked: false, size:"small", label:'74C', name:'74C' },
+            { id: 10, value: 'CYA', checked: false, size:"small", label:'CYA', name:'CYA' },
+            { id: 10, value: 'CYB', checked: false, size:"small", label:'CYB', name:'CYB' },
+            { id: 10, value: 'CYC', checked: false, size:"small", label:'CYC', name:'CYC' },
+            { id: 10, value: 'CYD', checked: false, size:"small", label:'CYD', name:'CYD' },
+            { id: 10, value: 'RMS', checked: false, size:"small", label:'RMS', name:'RMS' },
+            { id: 10, value: 'RMB', checked: false, size:"small", label:'RMB', name:'RMB' },
+        ]
+    },
+    'East': {
+        id: 0, 
+        value: 'East', 
+        checked: false, 
+        size:"small", 
+        label:'East', 
+        name:'East',
+        children: [
+            { id: 1, value: 'CAA', checked: false, size:"small", label:'CAA', name:'CAA' },
+            { id: 2, value: 'CAB', checked: false, size:"small", label:'CAB', name:'CAB' },
+            { id: 2, value: 'CAC', checked: false, size:"small", label:'CAC', name:'CAC' },
+            { id: 2, value: 'ELG', checked: false, size:"small", label:'ELG', name:'ELG' },
+        ]
+    },
+    'South': {
+        id: 0, 
+        value: 'South', 
+        checked: false, 
+        size:"small", 
+        label:'South', 
+        name:'South',
+        children: [
+            { id: 1, value: 'SAL', checked: false, size:"small", label:'SAL', name:'SAL' },
+            { id: 2, value: 'ALA', checked: false, size:"small", label:'ALA', name:'ALA' },
+            { id: 3, value: 'ALB', checked: false, size:"small", label:'ALB', name:'ALB' },
+            { id: 4, value: 'ALC', checked: false, size:"small", label:'ALC', name:'ALC' },
+            { id: 5, value: '61A', checked: false, size:"small", label:'61A', name:'61A' },
+            { id: 6, value: '61B', checked: false, size:"small", label:'61B', name:'61B' },
+            { id: 7, value: '62A', checked: false, size:"small", label:'62A', name:'62A' },
+            { id: 8, value: '62B', checked: false, size:"small", label:'62B', name:'62B' },
+            { id: 9, value: '65A', checked: false, size:"small", label:'65A', name:'65A' },
+            { id: 10, value: '65B', checked: false, size:"small", label:'65B', name:'65B' },
+            { id: 10, value: '65C', checked: false, size:"small", label:'65C', name:'65C' },
+            { id: 10, value: '65D', checked: false, size:"small", label:'65D', name:'65D' },
+            { id: 10, value: '64A', checked: false, size:"small", label:'64A', name:'64A' },
+            { id: 10, value: '64B', checked: false, size:"small", label:'64B', name:'64B' },
+            { id: 10, value: '64C', checked: false, size:"small", label:'64C', name:'64C' },
+            { id: 10, value: '64D', checked: false, size:"small", label:'64D', name:'64D' },
+            { id: 10, value: '64E', checked: false, size:"small", label:'64E', name:'64E' },
+            { id: 10, value: '64F', checked: false, size:"small", label:'64F', name:'64F' },
+            { id: 10, value: '63B', checked: false, size:"small", label:'63B', name:'63B' },
+            { id: 10, value: '63H', checked: false, size:"small", label:'63H', name:'63H' },
+            { id: 10, value: '63C', checked: false, size:"small", label:'63C', name:'63C' },
+        ]
+    },
+    'Support': {
+        id: 0, 
+        value: 'Support', 
+        checked: false, 
+        size:"small", 
+        label:'Support', 
+        name:'Support',
+        children: [
+            { id: 1, value: 'A', checked: false, size:"small", label:'A', name:'A' },
+            { id: 2, value: '7', checked: false, size:"small", label:'7', name:'7' },
+            { id: 2, value: 'N', checked: false, size:"small", label:'N', name:'N' },
+            { id: 2, value: 'B', checked: false, size:"small", label:'B', name:'B' },
+            { id: 2, value: '9', checked: false, size:"small", label:'9', name:'9' },
+            { id: 2, value: 'V', checked: false, size:"small", label:'V', name:'V' },
+        ]
+    },
 }
+
+// export const DASHBOARD_CONST_NORTH = 
+// {
+//     '71N': '71N',
+//     '71S': '71S',
+//     '76': '76',
+//     'ECS': 'ECS',
+//     'PMB': 'PMB',
+//     '08B': 'O8B',
+//     'O8C': 'O8C',
+//     'O8D': 'O8D',
+//     'O8E': 'O8E',
+//     'ECW': 'ECW',
+//     'O9A': 'O9A',
+//     '75W': '75W',
+//     '75E': '75E',
+//     '74A': '74A',
+//     '74B': '74B',
+//     '74C': '74C',
+//     'CYA': 'CYA',
+//     'CYB': 'CYB',
+//     'CYC': 'CYC',
+//     'CYD': 'CYD',
+//     'RMS': 'RMS',
+//     'RMB': 'RMB',
+// }
 
 export const DASHBOARD_CONST_EAST = {
     'CAA': 'CAA',
@@ -71,4 +149,13 @@ export const DASHBOARD_CONST_SOUTH = {
     '63B': '63B',
     '63H': '63H',
     '63C': '63C'
+}
+
+export const DASHBOARD_CONST_SUPPORT = {
+    'A': 'A',
+    '7': '7',
+    'N': 'N',
+    'B': 'B',
+    '9': '9',
+    'V': 'V'
 }

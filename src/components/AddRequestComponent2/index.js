@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { get } from 'lodash';
 import {
-    Table,
-    TableCell,
-    TableBody,
-    TableHead,
-    TableRow,
     Flex,
-    Button,
     Text,
     SelectField,
     Card,
@@ -15,49 +9,43 @@ import {
     TextField,
     View,
     CheckboxField,
-    Divider,
-    TextAreaField,
 } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { Link } from 'react-router-dom';
-import { DASHBOARD_CONST_NORTH, DASHBOARD_CONST_EAST, DASHBOARD_CONST_SOUTH } from './constants';
+import { DASHBOARD_CONST, DASHBOARD_CONST_EAST, DASHBOARD_CONST_SOUTH, DASHBOARD_CONST_SUPPORT } from './constants';
 import Header from '../../containers/Header';
 import './style.css';
 
 class AddRequestComponent extends React.Component {
     constructor(props, context) {
         super(props, context);
-
         this.state = {
             formData: {
-               
+                ...DASHBOARD_CONST
             }
         };
-
     }
 
-    onChangeInput = (e) => {
-        var delta = {};
-        switch(e.target.name){
-            case 'North':
-                delta[e.target.name] = e.target.checked;
+    onChangeInput = (e, unit, obj) => {
+        var delta = { ...this.state.formData };
+        switch (e.target.type) {
+            case 'checkbox':
+                if (unit) {
+                    unit.checked = e.target.checked;
+                    Object.keys(obj.children).every(function (k) { return obj.children[k].checked === true }) ? delta[obj.parent].checked = true : delta[obj.parent].checked = false;
+                    break;
+                }
+                delta[e.target.name].checked = e.target.checked;
+                delta[e.target.name].children.filter(x => x.checked = e.target.checked);
                 break;
             default:
                 delta[e.target.name] = e.target.value;
                 break;
         }
         this.setState({ formData: Object.assign(this.state.formData, delta) });
-        this.forceUpdate();
     }
 
     render() {
-        console.log("34", this.state.formData);
-
-        // Object.values(DASHBOARD_CONST_NORTH.children).map((theader, index) => {
-        //     // debugger
-        //     console.log("43", get(this.state.formData, 'North.isChecked', false) || false );
-            
-        // });
 
         return (
             <>
@@ -65,7 +53,7 @@ class AddRequestComponent extends React.Component {
                 <Flex fontSize={'smaller'} direction="column" className='addrequest-wrapper'>
                     <Grid
                         className="form-grid"
-                        templateColumns="1fr 1fr 1fr 1fr 1fr"
+                        templateColumns="15% 15% 15% 15% 15% 15%"
                         templateRows="0rem 0rem"
                         gap="var(--amplify-space-large)"
                     >
@@ -111,8 +99,6 @@ class AddRequestComponent extends React.Component {
                                 label="POC Voice"
                                 fontSize={'smaller'}
                                 size="small"
-                                // hasError={true}
-                                // errorMessage={`hello`}
                                 name="pocvoice"
                                 placeholder={"POC Voice"}
                                 autoComplete="pocvoice"
@@ -130,10 +116,22 @@ class AddRequestComponent extends React.Component {
                                 onChange={(e) => this.onChangeInput(e)}
                             />
                         </View>
+                        <View variation="elevated">
+                            <TextField
+                                label="Min Dur"
+                                onChange={(e) => this.onChangeInput(e)}
+                                fontSize={'smaller'}
+                                size="small"
+                                name="mindur"
+                                placeholder={"Min Dur"}
+                                autoComplete="mindur"
+                            />
+                        </View>
+
                     </Grid>
                     <Grid
                         className="form-grid"
-                        templateColumns="1fr 1fr 1fr 1fr 1fr"
+                        templateColumns="15% 15% 15% 15% 15% 15%"
                         templateRows="0rem 0rem"
                         gap="var(--amplify-space-large)"
                     > <View variation="elevated">
@@ -163,7 +161,7 @@ class AddRequestComponent extends React.Component {
                             />
                         </View>
                         <View variation="elevated">
-                            <SelectField onChange={(e) => this.onChangeInput(e)} 
+                            <SelectField onChange={(e) => this.onChangeInput(e)}
                                 className="time-select" label="Time" name="time" size="small">
                                 <option value="day">Day</option>
                                 <option value="night">Night</option>
@@ -172,42 +170,61 @@ class AddRequestComponent extends React.Component {
                         </View>
                         <View variation="elevated">
                             <TextField
-                                label="Min Dur"
+                                label="Type Of Mission"
                                 onChange={(e) => this.onChangeInput(e)}
                                 fontSize={'smaller'}
                                 size="small"
                                 name="mindur"
-                                placeholder={"Min Dur"}
+                                placeholder={"Type Of Mission"}
                                 autoComplete="mindur"
                             />
                         </View>
                         <View variation="elevated">
-                            <SelectField onChange={(e) => this.onChangeInput(e)} 
-                                className="time-select" 
-                                label="Type Of Mission" 
+                            <SelectField onChange={(e) => this.onChangeInput(e)}
+                                className="time-select"
+                                label="ORD"
                                 name="time" size="small">
-                                <option value="afm">AFM</option>
-                                <option value="dcm">DCM</option>
-                                <option value="bfa">BFA</option>
+                                <option value="afm"></option>
                             </SelectField>
-                        </View></Grid>
+                        </View>
+                        <View variation="elevated">
+                            <SelectField onChange={(e) => this.onChangeInput(e)}
+                                className="time-select"
+                                label="Split Air Spaces"
+                                name="time" size="small">
+                                <option value="afm"></option>
+                            </SelectField>
+                        </View>
+
+                    </Grid>
 
                     <Grid
                         className="form-grid"
-                        templateColumns="1fr 1fr 1fr 1fr 1fr"
+                        templateColumns="15% 15% 15% 15% 15%"
                         templateRows="0rem 0rem"
                         gap="var(--amplify-space-large)"
-                    ><View variation="elevated">
-                            <TextField
+                    ><Flex direction='row'><View variation="elevated">
+                        <TextField
+                            fontSize={'smaller'}
+                            label="AC"
+                            name="fromdate"
+                            size="small"
+                            placeholder={"AC"}
+                            autoComplete="ac"
+                            onChange={(e) => this.onChangeInput(e)}
+                        /></View>
+                            <View variation="elevated"><TextField
                                 fontSize={'smaller'}
-                                label="AC"
                                 name="fromdate"
+                                className='ac-text2'
+                                label="Last name"
+                                labelHidden={false}
                                 size="small"
                                 placeholder={"AC"}
                                 autoComplete="ac"
                                 onChange={(e) => this.onChangeInput(e)}
                             />
-                        </View>
+                            </View></Flex>
                         <View variation="elevated">
                             <TextField
                                 fontSize={'smaller'}
@@ -229,45 +246,48 @@ class AddRequestComponent extends React.Component {
                                 autoComplete="tur"
                                 onChange={(e) => this.onChangeInput(e)}
                             />
-                        </View> </Grid>
+                        </View>
+                    </Grid>
 
-                    <Flex direction="row" className="multi-select-list">
-                        <View className='checklist-name'><Card className="multi-select-card" variation="elevated">
-                            <CheckboxField onChange={(e) => this.onChangeInput(e)} label={'North'} name={'North'} /></Card></View>
-                        <View className='checklist'>{Object.values(DASHBOARD_CONST_NORTH).map((params, index) => {
-                            return (<Card className="multi-select-card" variation="elevated">
-                                <Text ><CheckboxField onChange={(e) => this.onChangeInput(e)} label={params} /></Text>
-                            </Card>);
-                        })}</View>
-                    </Flex>
-
-                    <Flex direction="row" className="multi-select-list">
-                        <View className='checklist-name'><Card className="multi-select-card" variation="elevated">
-                            <CheckboxField size="small" label="East" name="east" /></Card></View>
-                        <View className='checklist'>{Object.values(DASHBOARD_CONST_EAST).map((theader, index) => {
-                            return (<Card className="multi-select-card" variation="elevated">
-                                <Text ><CheckboxField size="small" label={theader} name="subscribe" value="yes" /></Text>
-                            </Card>);
-                        })}</View>
-                    </Flex>
-
-                    <Flex direction="row" className="multi-select-list">
-                        <View className='checklist-name'><Card className="multi-select-card" variation="elevated">
-                            <CheckboxField size="small" label="South" name="south" checked='checked' /></Card></View>
-                        <View className='checklist'>{Object.values(DASHBOARD_CONST_SOUTH).map((theader, index) => {
-                            return (<Card className="multi-select-card" variation="elevated">
-                                <Text ><CheckboxField size="small" label={theader} name="subscribe" value="yes" /></Text>
-                            </Card>);
-                        })}</View>
-                    </Flex>
-                    <TextAreaField label="Remarks" size="small" className="remarks"/>
+                    {Object.values(DASHBOARD_CONST).map((range, index) => {
+                        return (<Flex direction="row" className="multi-select-list">
+                            <View className='checklist-name'>
+                                <Card className="multi-select-card" variation="elevated">
+                                    <CheckboxField
+                                        {...Object.fromEntries(Object.entries(DASHBOARD_CONST[range.label]).slice(1, 6))}
+                                        onChange={(e) => this.onChangeInput(e)}
+                                    />
+                                </Card>
+                            </View>
+                            <View className='checklist'>{DASHBOARD_CONST[range.label].children.map((param, index) => {
+                                return (
+                                    <Card className="multi-select-card" variation="elevated">
+                                        <CheckboxField
+                                            {...param}
+                                            onChange={(e) => this.onChangeInput(e, param, { children: DASHBOARD_CONST[range.label].children, parent: range.label })}
+                                        />
+                                    </Card>
+                                );
+                            })}</View>
+                        </Flex>)
+                    })}
+                    <Flex className="form-grid" direction="row" ><TextField
+                        fontSize={'smaller'}
+                        label="Remarks"
+                        name="tur"
+                        size="small"
+                        placeholder={"Remarks"}
+                        autoComplete="tur"
+                        onChange={(e) => this.onChangeInput(e)}
+                    /></Flex>
+                    {/* <TextAreaField label="Remarks" size="small" className="remarks" /> */}
                     <Flex direction="row" className="addrequest-footer-buttons">
                         <Link className='amplify-button amplify-field-group__control footer-buttons' to={'/addrequest'}>Submit</Link>
                         <Link className='amplify-button amplify-field-group__control footer-buttons' to={'/addrequest'}>Clear</Link>
                         <Link className='amplify-button amplify-field-group__control footer-buttons' to={'/dashboard'}>Cancel</Link>
                     </Flex>
                     {/* </Grid> */}
-                   
+
                 </Flex>
 
             </>
