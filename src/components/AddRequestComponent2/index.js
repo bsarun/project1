@@ -203,10 +203,10 @@ class AddRequestComponent extends React.Component {
                         templateColumns="15% 15% 15% 15% 15%"
                         templateRows="0rem 0rem"
                         gap="var(--amplify-space-large)"
-                    ><Flex direction='row'><View variation="elevated">
+                    ><View variation="elevated">
                         <TextField
                             fontSize={'smaller'}
-                            label="AC"
+                            label="AC-Firstround"
                             name="fromdate"
                             size="small"
                             placeholder={"AC"}
@@ -216,15 +216,14 @@ class AddRequestComponent extends React.Component {
                             <View variation="elevated"><TextField
                                 fontSize={'smaller'}
                                 name="fromdate"
-                                className='ac-text2'
-                                label="Last name"
-                                labelHidden={false}
+                                // className='ac-text2'
+                                label="AC-Secondround"
                                 size="small"
                                 placeholder={"AC"}
                                 autoComplete="ac"
                                 onChange={(e) => this.onChangeInput(e)}
                             />
-                            </View></Flex>
+                            </View>
                         <View variation="elevated">
                             <TextField
                                 fontSize={'smaller'}
@@ -272,7 +271,8 @@ class AddRequestComponent extends React.Component {
                         </Flex>)
                     })}
                     <Flex className="form-grid" direction="row" ><TextField
-                        fontSize={'smaller'}
+                        fontSize={'small'}
+                        className='remarks-textbox'
                         label="Remarks"
                         name="tur"
                         size="small"
